@@ -42,7 +42,7 @@ class Kinopoisk_UI:
         login.click()
 
     # Найти заголовок страницы Войти
-    def seach_title_login(self):
+    def search_title_login(self):
         button_login = WebDriverWait(self._driver, 15).until(
             EC.presence_of_element_located((
                 By.CSS_SELECTOR, '.passp-add-account-page-title'))).text
@@ -56,18 +56,18 @@ class Kinopoisk_UI:
         film_free.click()
 
     # Найти заголовок страницы Смотреть кино бесплатно
-    def seach_film_free(self):
+    def search_film_free(self):
         title_film_free = WebDriverWait(self._driver, 15).until(
             EC.presence_of_element_located((
                 By.CSS_SELECTOR, '.passp-add-account-page-title'))).text
         return title_film_free
 
     # Нажать кнопку Лупа
-    def click_random_seach(self):
-        random_seach = WebDriverWait(self._driver, 15).until(
+    def click_random_search(self):
+        random_search = WebDriverWait(self._driver, 15).until(
             EC.presence_of_element_located((
                 By.CSS_SELECTOR, '.search-form-submit-button__icon')))
-        random_seach.click()
+        random_search.click()
 
     # Нажать кнопку Случайный фильм
     def click_random_film(self):

@@ -33,10 +33,10 @@ def test_quick_search():
         film_page.name_film()
 
     with allure.step("Просмотреть результат поиска"):
-        seach_film = film_page.result_film()
+        search_film = film_page.result_film()
 
     with allure.step("Проверить поиск"):
-        assert seach_film == ("Мастер и Маргарита")
+        assert search_film == ("Мастер и Маргарита")
 
     with allure.step("Закрыть браузер"):
         film_page.close_driver()
@@ -53,7 +53,7 @@ def test_button_login():
         button_login_page.click_button_login()
 
     with allure.step("Найти заголовок страницы"):
-        button_login = button_login_page.seach_title_login()
+        button_login = button_login_page.search_title_login()
 
     with allure.step("Проверить заголовок"):
         assert button_login == ("Введите номер телефона")
@@ -64,33 +64,33 @@ def test_button_login():
 
 @allure.title("Смотреть кино бесплатно")
 @pytest.mark.test_04_ui
-def test_film_reee():
+def test_watch_free_movie():
     with allure.step("Открыть окно Кинопоиск"):
         browser = webdriver.Chrome()
-        film_free_page = Kinopoisk_UI(browser)
+        watch_free_movie = Kinopoisk_UI(browser)
 
     with allure.step("Нажать кнопку Смотреть кино бесплатно"):
-        film_free_page.click_film_free()
+        watch_free_movie.click_film_free()
 
     with allure.step("Найти заголовок страницы"):
-        title_film_free = film_free_page.seach_film_free()
+        title_free_movie = watch_free_movie.search_film_free()
 
     with allure.step("Проверить заголовок"):
-        assert title_film_free == ("Введите номер телефона")
+        assert title_free_movie == ("Введите номер телефона")
 
     with allure.step("Закрыть браузер"):
-        film_free_page.close_driver()
+        watch_free_movie.close_driver()
 
 
 @allure.title("Случайный поиск")
 @pytest.mark.test_05_ui
-def test_random_seach():
+def test_random_search():
     with allure.step("Открыть окно Кинопоиск"):
         browser = webdriver.Chrome()
         button_random_film_page = Kinopoisk_UI(browser)
 
     with allure.step("Нажать кнопку Лупа"):
-        button_random_film_page.click_random_seach()
+        button_random_film_page.click_random_search()
 
     with allure.step("Нажать кнопку Случайный фильм"):
         button_random_film_page.click_random_film()
