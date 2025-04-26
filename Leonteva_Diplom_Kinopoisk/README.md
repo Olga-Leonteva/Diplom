@@ -31,7 +31,6 @@ API:
 
 * `test_api.py` - тесты
 
-* `pytest.ini` - маркеры для запуска pytest
 
 UI:
 
@@ -41,7 +40,9 @@ UI:
 
 * `test_ui.py` - тесты
 
-* `pytest.ini` - маркеры для запуска pytest
+* `conftest.py` - фикстура для запуска и закрытия браузера
+
+`pytest.ini` - маркеры для запуска pytest
 
 `README.md` - отчет-инструкция к работе
 
