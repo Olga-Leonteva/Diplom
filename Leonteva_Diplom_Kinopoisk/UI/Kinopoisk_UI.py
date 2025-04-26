@@ -49,18 +49,18 @@ class Kinopoisk_UI:
         return button_login
 
     # Нажать кнопку Смотреть кино бесплатно
-    def click_film_free(self):
-        film_free = WebDriverWait(self._driver, 15).until(
+    def click_free_movie(self):
+        free_movie = WebDriverWait(self._driver, 25).until(
                 EC.presence_of_element_located(
                     (By.CSS_SELECTOR, '.style_buttonLight____6ma')))
-        film_free.click()
+        free_movie.click()
 
     # Найти заголовок страницы Смотреть кино бесплатно
-    def search_film_free(self):
-        title_film_free = WebDriverWait(self._driver, 15).until(
+    def search_free_movie(self):
+        title_free_movie = WebDriverWait(self._driver, 15).until(
             EC.presence_of_element_located((
                 By.CSS_SELECTOR, '.passp-add-account-page-title'))).text
-        return title_film_free
+        return title_free_movie
 
     # Нажать кнопку Лупа
     def click_random_search(self):
@@ -76,9 +76,11 @@ class Kinopoisk_UI:
         button_random_film.click()
 
     # Сделать скриншот результата поиска
-    def screenshot(self):
-        self._driver.save_screenshot("./ya.png")
+    def screenshot(self, test_name):
+        self._driver.save_screenshot(f"screenshots/{test_name}.png")
 
-    # Закрыть браузер
-    def close_driver(self):
-        self._driver.quit()
+    # Результат поиска Случайный фильм
+    def random_movie(self):
+        result_random_movie = WebDriverWait(self._driver, 15).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, '.filmName')))
+        return result_random_movie is not None

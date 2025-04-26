@@ -6,7 +6,9 @@ import pytest
 @allure.epic("API tests")
 @allure.feature("Позитивные проверки")
 @allure.title("Поиск по названию фильма")
-@pytest.mark.test_01_api
+@pytest.mark.api
+@pytest.mark.pos
+@pytest.mark.smoke
 def test_seach_film_by_title():
     api = Kinopoisk_API()
     new_title = "The Beekeeper"
@@ -15,8 +17,11 @@ def test_seach_film_by_title():
     assert response.json()["docs"][0]["alternativeName"] == new_title
 
 
+@allure.epic("API tests")
+@allure.feature("Позитивные проверки")
 @allure.title("Поиск по имени актера")
-@pytest.mark.test_02_api
+@pytest.mark.api
+@pytest.mark.pos
 def test_seach_name_person():
     api = Kinopoisk_API()
     name_person = "Johnny Depp"
@@ -25,8 +30,11 @@ def test_seach_name_person():
     assert response.status_code == 200
 
 
+@allure.epic("API tests")
+@allure.feature("Позитивные проверки")
 @allure.title("Поиск фильма по id актера")
-@pytest.mark.test_03_api
+@pytest.mark.api
+@pytest.mark.pos
 def test_seach_film_person_id():
     api = Kinopoisk_API()
     person_id = 6245
@@ -36,9 +44,11 @@ def test_seach_film_person_id():
     assert response.status_code == 200
 
 
+@allure.epic("API tests")
 @allure.feature("Негативные проверки")
 @allure.title("Поиск по неверному id")
-@pytest.mark.test_04_api
+@pytest.mark.api
+@pytest.mark.neg
 def test_seach_wrong_id():
     api = Kinopoisk_API()
     wrong_id = "249"
@@ -47,8 +57,11 @@ def test_seach_wrong_id():
     assert response.json()["error"] == "Bad Request"
 
 
+@allure.epic("API tests")
+@allure.feature("Негативные проверки")
 @allure.title("Поиск несуществующего жанра")
-@pytest.mark.test_05_api
+@pytest.mark.api
+@pytest.mark.neg
 def test_seach_wrong_category():
     api = Kinopoisk_API()
     wrong_category = "небылица"

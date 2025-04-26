@@ -79,7 +79,7 @@ UI:
 
 1. Открываем новый терминал
 2. Переходим в папку `Leonteva_Diplom_Kinopoisk`, используя команду `cd Leonteva_Diplom_Kinopoisk`
-3. Вводим команду `pytest test_api.py --alluredir=./allure_result_all`
+3. Вводим команду `pytest --alluredir=./allure_result_all`
 4. После завершения тестирования вводим команду `allure serve allure_result_all` для просмотра отчета о тестировании
 
 ## Стек технологий
