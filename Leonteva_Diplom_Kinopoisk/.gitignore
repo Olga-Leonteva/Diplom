@@ -1,0 +1,11 @@
+# Служебные
+.idea/
+.venv/
+__pycache__/
+.vscode/
+.DS_Store
+
+# Персональные
+allure_result_all/
+allure_result_api/
+allure_result_ui/
